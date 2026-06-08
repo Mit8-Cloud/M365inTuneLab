@@ -1,0 +1,4 @@
+Name [displayName] Required,User name [userPrincipalName] Required,Initial password [passwordProfile] Required,Account enabled (true/false) [accountEnabled],First name [givenName],Last name [surname],Job title [jobTitle],Department [department],Usage location [usageLocation],Street address [streetAddress],State or province [state],Country or region [country],Office [officeLocation],City [city],ZIP or postal code [postalCode],Business phone [businessPhones],Mobile phone [mobilePhone],,
+BulkA_Gui,bulka@m365endpoint.onmicrosoft.com,FirstPassword01!,TRUE,A,Bulk,IT Manager,IT,JP,,Kumamoto,JP,,,,,,,
+BulkB_Gui,bulkb@m365endpoint.onmicrosoft.com,FirstPassword02!,TRUE,B,Bulk,HR Manager,HR,JP,,Ibaraki,JP,,,,,,,
+BulkC_Gui,bulkc@m365endpoint.onmicrosoft.com,FirstPassword03!,TRUE,C,Bulk,GA Manager,GA,JP,,Shizuoka,JP,,,,,,,

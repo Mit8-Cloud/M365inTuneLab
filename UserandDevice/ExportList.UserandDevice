@@ -1,0 +1,25 @@
+<#
+.SYNOPSIS
+    Microsoft 365 からユーザーとデバイスの一覧を取得し、CSVに出力します。
+.DESCRIPTION
+    このスクリプトは GitHub のポートフォリオ用成果物です。
+    実行には Microsoft.Graph モジュールが必要です。
+#>
+
+# 1. Microsoft Graph への接続（ユーザー読込とデバイス読込の権限を指定）
+Connect-MgGraph -Scopes "User.Read.All", "Device.Read.All"
+
+# 2. ユーザー一覧の取得とCSV出力
+Write-Host "ユーザー一覧を取得中..." -ForegroundColor Cyan
+$Users = Get-MgUser -All -Property Id, DisplayName, UserPrincipalName, Mail, IsLicensed
+$Users | Select-Object DisplayName, UserPrincipalName, Mail, IsLicensed | Export-Csv -Path "./m365_users.csv" -NoTypeInformation -Encoding utf8
+
+# 3. デバイス一覧の取得とCSV出力
+Write-Host "デバイス一覧を取得中..." -ForegroundColor Cyan
+$Devices = Get-MgDevice -All -Property Id, DisplayName, OperatingSystem, TrustType
+$Devices | Select-Object DisplayName, OperatingSystem, TrustType | Export-Csv -Path "./m365_devices.csv" -NoTypeInformation -Encoding utf8
+
+# 4. 接続の切断
+Disconnect-MgGraph
+Write-Host "完了しました。CSVファイルを出力しました。" -ForegroundColor Green
+

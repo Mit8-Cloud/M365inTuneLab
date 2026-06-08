@@ -1,0 +1,83 @@
+Connect-MgGraph -Scopes "User.ReadWrite.All", "Directory.ReadWrite.All"
+get-mguser -top10
+getmguser top 10
+get-mguser -top 10
+$PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
+$PasswordProfile = @{
+    Password = 'SecureP@ssword123!'
+    ForceChangePasswordNextSignIn = $true
+}
+$UserParams = @{
+    DisplayName       = 'John Smith'
+    UserPrincipalName = 'johnsmith@m365endpoint.onmicrosoft.com'
+    MailNickName      = 'johnsmith'
+    AccountEnabled    = $true
+    PasswordProfile   = $PasswordProfile
+}
+New-MgUser @UserParams
+$passwordprofile = 'lovebike'
+forcechangepasswordnextsignin = $true
+$PasswordProfile = @{                                           >>     Password = 'SecureP@ssword123!'
+>>     ForceChangePasswordNextSignIn = $true
+>> }
+clear
+$PasswordProfile = @{
+    Password = 'lovebike!'
+    ForceChangePasswordNextSignIn = $true
+}
+$UserParams = @{
+    DisplayName       = 'Harley Davidson'
+    UserPrincipalName = 'dharley@m365endpoint.onmicrosoft.comm'
+    MailNickName      = 'dharley'
+    AccountEnabled    = $true
+    PasswordProfile   = $PasswordProfile
+}
+New-MgUser @UserParams
+$PasswordProfile = @{
+    Password = 'lovebike!'
+    ForceChangePasswordNextSignIn = $true
+}
+$UserParams = @{
+    DisplayName       = 'Harley Davidson'
+    UserPrincipalName = 'dharleyh@m365endpoint.onmicrosoft.com'
+    MailNickName      = 'dharley'
+    AccountEnabled    = $true
+    PasswordProfile   = $PasswordProfile
+}
+New-MgUser @UserParams
+$PasswordProfile = @{
+    Password = 'IlovemyBIKE!'
+    ForceChangePasswordNextSignIn = $true
+}
+$UserParams = @{
+    DisplayName       = 'Harley Davidson'
+    UserPrincipalName = 'dharley@m365endpoint.onmicrosoft.com'
+    MailNickName      = 'dharley'
+    AccountEnabled    = $true
+    PasswordProfile   = $PasswordProfile
+}
+New-MgUser @UserParams
+Remove-AzADUser -UserPrincipalName "user@yourdomain.com"
+Remove-AzADUser -userprincipalname "johnsmith@m365endpoint.onmicrosoft.com"
+Remove-ADUser -Identity "johnsmith@m365endpoint.onmicrosoft.com"-Confirm:$false
+remove-aduser -identity "johnsmith@m365endpoint.onmicrosoft.com"-Confirm:$false
+Remove-AdUser -identity "johnsmith@m365endpoint.onmicrosoft.com"-Confirm:$false
+Remove-AzADUser -UserPrincipalName "johnsmith@m365endpoint.onmicrosoft.com"
+Remove-AzADUser -UserPrincipalName "johnsmith@m365endpoint.onmicrosoft.com"
+clear
+remove-azaduser -userprincipalname "johnsmith@m365endpoint.onmicrosoft.com"
+Remove-EntraUser -UserId "johnsmith@m365endpoint.onmicrosoft.com"
+Remove-MgUser -UserId "johnsmith@m365endpoint.onmicrosoft.com"          
+clear
+$PasswordProfile = @{
+    Password = 'SecureP@ssword123!'
+    ForceChangePasswordNextSignIn = $true
+}
+$UserParams = @{
+    DisplayName       = 'Honda SuperFour'
+    UserPrincipalName = 'shonda@m365endpoint.onmicrosoft.com'
+    MailNickName      = 'shonda'
+    AccountEnabled    = $true
+    PasswordProfile   = $PasswordProfile
+}
+New-MgUser @UserParams
