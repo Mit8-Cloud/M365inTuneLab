@@ -1,4 +1,0 @@
-DisplayName,UserPrincipalName,passwordProfile,AccountEnabled,FirstName,Surname,Job title [jobTitle],Department [department],UsageLocation,Street address [streetAddress],State or province [state],Country or region [country],Office [officeLocation],City [city],ZIP or postal code [postalCode],Business phone [businessPhones],Mobile phone [mobilePhone],,
-BulkA PS,bulkasp@m365endpoint.onmicrosoft.com,InitialPassword01!,TRUE,Amie,BulkbySPA,IT Manager,IT,JP,,Osaka,JP,,,,,,,
-BulkB PS,bulkbsp@m365endpoint.onmicrosoft.com,InitialPassword02!,TRUE,Bob,BulkbySPB,HR Manager,HR,JP,,Kyoto,JP,,,,,,,
-BulkC PS,bulkcsp@m365endpoint.onmicrosoft.com,InitialPassword03!,TRUE,Colin,BulkbySPC,GA Manager,GA,JP,,Nara,JP,,,,,,,
