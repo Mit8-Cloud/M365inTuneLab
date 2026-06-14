@@ -1,0 +1,40 @@
+Connect-MgGraph -Scopes "User.ReadWrite.All", "Directory.ReadWrite.All"
+$users = Get-MgUser -All | Select-Object DisplayName, UserPrincipalName, Department
+$users | Out-GridView
+$users = Get-MgUser -All | Select-Object DisplayName, UserPrincipalName, Department
+$users | Format-Table -AutoSize
+$params = @{
+    displayName      = "Dynamic-ServiceDesk-Users"
+    description      = "部署がservicedeskのユーザーが自動追加されるグループ"
+    mailEnabled      = $false
+    securityEnabled  = $true
+    mailNickname     = "dynamic-servicedesk"
+    # 動的グループにするための設定
+    groupTypes       = @("DynamicMembership")
+    membershipRule   = '(user.department -eq "servicedesk")'
+    membershipRuleProcessingState = "On"
+}
+$GroupName = "Dynamic-ServiceDesk-Users"
+Get-MgGroup -Filter "displayName eq '$GroupName'" | ForEach-Object {
+    Get-MgGroupMember -GroupId $_.Id -All | ForEach-Object {
+        Get-MgUser -UserId $_.Id -Property "displayName","userPrincipalName"
+    }
+} | Select-Object displayName, userPrincipalName
+$groups = Get-MgGroup -All | Select-Object Id, DisplayName, Description, GroupTypes
+$groups | Format-Table -AutoSize
+$dynamicRule = '(user.department -eq "servicedesk")'
+$groupParams = @{
+    DisplayName        = "Dynamic-ServiceDesk-Users"
+    Description        = "部署がservicedeskのユーザーが自動追加されるグループ"
+    MailEnabled        = $false
+    MailNickname       = "dyn-servicedesk-users"
+    SecurityEnabled    = $true
+    GroupTypes         = @("DynamicMembership")
+    MembershipRule     = $dynamicRule
+    MembershipRuleProcessingState = "On"
+}
+New-MgGroup @groupParams
+Write-Host "動的グループを作成しました。" -ForegroundColor Green
+et-MgGroup -All | Select-Object DisplayName, Id | Sort-Object DisplayName | Format-Table -AutoSize
+et-MgGroup -All | Select-Object -ExpandProperty DisplayName | Sort-Object
+get-MgGroup -All | Select-Object -ExpandProperty DisplayName | Sort-Object

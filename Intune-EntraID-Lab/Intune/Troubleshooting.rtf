@@ -1,0 +1,31 @@
+{\rtf1\ansi\ansicpg932\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14520\viewh15580\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+User creation: \
+Didn\'92t execute the new user creation command, didn\'92t select the right codes for EntraID (Codes are different depending on the source - AZ AD)\
+Bulk user creation(GUI): \'93For user location\'94 you need to type the special abbreviation for each country - I.e. JP for Japan, different domain\
+\
+Mac device enrollment:\
+Tried to launch \'93company portal\'94 on my mac, but it shows \'93Couldn\'92t add a device\'94 error.\
+	->  Checked on inTune admin portal: License granted. Device not shown in inTune admin portal. Enrollment restriction not set.\
+	->  Resolution: MDM push certificate settings not completed -> Installed CSR file. Provided the Apple account. Created the MDM push certificate.
+\fs32 \
+\
+
+\fs24 Multiple users creation by script:\
+CSV file needs to be prepared very carefully - 1. Mail Nickname is mandatory (To omit, need extra coding)\
+2. Underscore, space should not be added as those can not be identified in PS.\
+3. 2-letter ISO code need to be added for Usage Location - i.g. JP for Japan\
+\
+Dynamic group creation:\
+Created group: Department \'93ServiceDesk\'94 will be added to \'93\'94 group and license M365 E3 be added/\
+Confirmed the license was added but the account type shows \'93Direct\'94 (manually added).\
+\
+You need to give the license also the group itself.  It\'92s taking time on the system not reflected but powershell proves that it\'92s \'93Inherited\'94.\
+\
+}
